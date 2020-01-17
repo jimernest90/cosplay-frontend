@@ -1,5 +1,6 @@
 import React from 'react'
 import Axios from 'axios'
+import { NavLink } from 'react-router-dom'
 
 class ItemForm extends React.Component {
     constructor(props) {
@@ -25,12 +26,17 @@ class ItemForm extends React.Component {
     render() {
         console.log(this.props)
         return (
-            <form className='form' onSubmit={this.addItem}>
+            <>
+            <form className='itemForm' onSubmit={this.addItem}>
+            <h2>Add Item</h2>
                 <input name='img' value={this.state.img} placeholder='image' onChange={this.handleChange} />
                 <input name='name' value={this.state.name} placeholder='name' onChange={this.handleChange} />
                 <input name='description' value={this.state.description} placeholder='description' onChange={this.handleChange} />
-                <input type='submit' value='add' />
+                <input type='submit' value='add' className='itemButton'/>   
+                <NavLink exact to='/'><div className='backButton'>Back</div></NavLink> 
             </form>
+           
+            </>
             
         )
     }

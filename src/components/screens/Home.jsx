@@ -71,15 +71,16 @@ class Home extends React.Component {
     return (
       this.state.costumes.map((costume, index) => {
         return (
-
+          <div className='cardContainer'>
           <div className='card' key={index}>
             <div className='costumeName'>{costume.name}</div>
             <div className='costume' onClick={() => this.openForm(costume.id)}>
               <img src={costume.img} alt={costume.name} className='costumeImage' width='400px' height='400px' />
+              <div className='instructions'>click picture to add an accessory</div>
             </div>
             <div className='costumeDescription'>{`Description: ${costume.description}`}
               <button className='danger' onClick={() => this.handleDeleteCostume(costume)}
-              >Delete</button>
+              >X</button>
             </div>
             <div className='acc'>Accessories</div>
             <div className='itemContainer'>
@@ -98,17 +99,20 @@ class Home extends React.Component {
               })}
             </div>
             {itemForm}
-            <h1>Edit Costume</h1>
+            <div className='forms'>
+            <div className='editForm'>
             <form className='form' onSubmit={(e) => this.handleUpdateCostume(e, costume.id)}>
+            <h1>Edit Costume</h1>
               <input name='image' value={this.state.img} placeholder='image' onChange={this.handleChange} />
               <input name='name' value={this.state.name} placeholder='name' onChange={this.handleChange} />
               <input name='description' value={this.state.description} placeholder='description' onChange={this.handleChange} />
               <button>edit</button>
             </form>
+            </div>
             <AddCostume />
+            </div>
           </div>
-
-
+          </div>
         )
       })
 

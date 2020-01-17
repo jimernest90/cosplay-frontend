@@ -1,5 +1,15 @@
 *{
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Righteous', cursive;
+}
+body{
+    background: black;
+    animation: changeBackgroundColor1.5s;
+    transition: ease-in 1.5s;
+}
+.card{
+    width: 30em;
+    display: flex;
+    flex-direction: column;
 }
 .card .itemImage{
     width: 3em;
@@ -12,9 +22,7 @@
     width: 20em;
     height: 20em;
     border-radius: 50%;
-    animation: changePosition 2s infinite;
-    margin: 1em;
-    align-self: center;
+    margin-left: 5em;
     
 }
 .costumeName{
@@ -34,8 +42,17 @@
 }
 .itemContainer{
     display: flex;
+    /* border: 2px solid black; */
+    padding: 2em;
+}
+.items{
+    animation: changePosition .5s;
+    transition: ease-in 2s;
 }
 .costumeDescription{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
     text-align: center;
     margin-bottom: 2em;
     font-weight: 700;
@@ -47,30 +64,105 @@
     font-weight: bold;
 }
 .danger{
+    align-self: center;
     background: red;
-    height: 30%;
-    border-radius: 50%;
+    height: 4em;
+    width: 4em;
+    border-radius: 5px
 }
 input{
     border-radius: 5px;
     display: flex;
 
 }
-/* 
+.form{
+    width: 10em;
+    border-radius: 5px;
+    background: whitesmoke;
+    border: solid 2px black;
+    margin: 2em;
+
+}
+.itemForm{
+    display: flex;
+    flex-direction: column;
+    background: whitesmoke;
+    width: 20em;
+    margin: auto;
+    justify-content: center;
+    padding: 2em;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 2em;
+}
+.cardContainer{
+    border: 2px solid black;
+    width: 30em;
+    /* margin: 2em;
+    margin: 2em; */
+    border-radius: 5px;
+    padding: 2em;
+    background: whitesmoke;
+    animation: changePosition .5s, changeMargin .5s;
+    transition: ease-in 2s;
+    margin: auto;
+}
+.instructions{
+    color: teal;
+    margin: 1em;
+    text-align: center;
+    border: 2px solid teal;
+    font-size: 1.5rem;
+}
+.forms{
+    display: flex;
+}
+.itemButton{
+    width: 5em;
+    margin: auto;
+    text-align: center;
+}
+.backButton{
+    width: 7em;
+    height: 2em;
+    margin: auto;
+    text-align: center;
+    font-size: .5rem;
+    background: lightgray;
+    border-radius: 5px;
+    margin-top: 2px;
+    list-style: none;
+    
+}
+
+
   @keyframes changePosition{
-      25%{
-          transform: scale(1.1);
-      }
-      30%{
-        transform: scale(1.2);
-      }
-      40%{
-        transform: scale(1.1);
+      0%{
+          transform: rotateZ(30deg);
       }
       50%{
-        transform: scale(1.2)
+          transform: rotateZ(-30deg);
       }
       75%{
-        transform: scale(1.1)
+        transform: translateX(20em)
       }
-  } */
+  }
+  @keyframes changeMargin{
+      25%{
+          margin: 1em;
+      }
+      75%{
+          margin: 3em;
+      }
+  }
+  @keyframes changeBackgroundColor{
+      25%{
+          background: rgba(0,0,0,.25);
+      }
+      50%{
+          background: rgba(0,0,0,.5);
+      }
+      100%{
+          background: rgba(0,0,0,.25);
+      }
+  }
